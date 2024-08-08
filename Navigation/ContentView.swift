@@ -70,6 +70,7 @@ struct ContentView: View {
     
     //Pass the class PathStore to pathStore
     @State private var pathStore = PathStore()
+    @State private var tittle = "SwiftUI"
     
     var body: some View {
         NavigationStack(path: $pathStore.path) {
@@ -77,7 +78,12 @@ struct ContentView: View {
                 .navigationDestination(for: Int.self) { i in
                     DetailView(number: i, path: $pathStore.path)
                 }
+                .navigationTitle($tittle)
+                .navigationBarTitleDisplayMode(.inline)
+                
         }
+        
+        
     }
 }
 
